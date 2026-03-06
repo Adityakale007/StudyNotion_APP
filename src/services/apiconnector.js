@@ -1,7 +1,7 @@
 import axios from "axios"
 
 export const axiosInstance = axios.create({
-    baseURL: "http://localhost:4000/api/v1",
+    baseURL: "https://studynotion-backend-8bx4.onrender.com/api/v1",
     withCredentials: true,
 });
 
