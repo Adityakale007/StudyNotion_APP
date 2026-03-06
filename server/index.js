@@ -21,14 +21,17 @@ database.connect();
 //middlewares
 app.use(express.json());
 app.use(cookieParser());
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://study-notion-app-five.vercel.app",
+];
+
 app.use(
-	cors({
-		//connect frontend to backend
-		// origin:"http://localhost:3000",
-		origin:"*",
-		credentials:true,
-	})
-)
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  })
+);
 
 app.use(
 	fileUpload({
