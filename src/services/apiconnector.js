@@ -10,6 +10,7 @@ const BASE_URL =
 export const axiosInstance = axios.create({
     baseURL: BASE_URL,
     withCredentials: true,
+    
 });
 
 // API connector
