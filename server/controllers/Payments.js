@@ -14,7 +14,7 @@ const CourseProgress = require("../models/CourseProgress")
 exports.capturePayment = async (req, res) => {
   const { courses } = req.body
   const userId = req.user.id
-  if (courses.length === 0) {
+  if (!courses || courses.length === 0) {
     return res.json({ success: false, message: "Please Provide Course ID" })
   }
 
@@ -35,7 +35,7 @@ exports.capturePayment = async (req, res) => {
 
       // Check if the user is already enrolled in the course
       const uid = new mongoose.Types.ObjectId(userId)
-      if (course.studentsEnroled.includes(uid)) {
+      if (course.studentsEnrolled.includes(uid)) {
         return res
           .status(200)
           .json({ success: false, message: "Student is already Enrolled" })
@@ -130,6 +130,10 @@ exports.sendPaymentSuccessEmail = async (req, res) => {
         paymentId
       )
     )
+    return res.status(200).json({
+      success: true,
+      message: "Payment success email sent",
+    })
   } catch (error) {
     console.log("error in sending mail", error)
     return res
@@ -151,7 +155,7 @@ const enrollStudents = async (courses, userId, res) => {
       // Find the course and enroll the student in it
       const enrolledCourse = await Course.findOneAndUpdate(
         { _id: courseId },
-        { $push: { studentsEnroled: userId } },
+        { $push: { studentsEnrolled: userId } },
         { new: true }
       )
 
