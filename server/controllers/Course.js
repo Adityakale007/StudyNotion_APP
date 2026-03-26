@@ -443,6 +443,7 @@ exports.getInstructorCourses = async (req, res) => {
 exports.deleteCourse = async (req, res) => {
   try {
     const { courseId } = req.body
+    const userId = req.user.id
 
     // Find the course
     const course = await Course.findById(courseId)
@@ -450,8 +451,15 @@ exports.deleteCourse = async (req, res) => {
       return res.status(404).json({ message: "Course not found" })
     }
 
+    if (course.instructor.toString() !== userId) {
+      return res.status(403).json({
+        success: false,
+        message: "You are not authorized to delete this course",
+      })
+    }
+
     // Unenroll students from the course
-    const studentsEnrolled = course.studentsEnroled
+    const studentsEnrolled = course.studentsEnrolled
     for (const studentId of studentsEnrolled) {
       await User.findByIdAndUpdate(studentId, {
         $pull: { courses: courseId },
@@ -473,6 +481,14 @@ exports.deleteCourse = async (req, res) => {
       // Delete the section
       await Section.findByIdAndDelete(sectionId)
     }
+
+    await User.findByIdAndUpdate(userId, {
+      $pull: { courses: courseId },
+    })
+
+    await Category.findByIdAndUpdate(course.category, {
+      $pull: { courses: courseId },
+    })
 
     // Delete the course
     await Course.findByIdAndDelete(courseId)
