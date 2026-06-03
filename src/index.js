@@ -7,7 +7,6 @@ import { Provider } from "react-redux";
 import rootReducer from "./reducer";
 import {configureStore} from "@reduxjs/toolkit"
 import { Toaster } from "react-hot-toast";
-console.log("ALL ENV VARIABLES:", process.env);
 
 
 const store = configureStore({
