@@ -46,7 +46,6 @@ export async function buyCourse(token, courses, userDetails, navigate, dispatch)
         }
         console.log("PRINTING orderResponse", orderResponse);
 
-        console.log("RAZORPAY KEY IS:", process.env.REACT_APP_RAZORPAY_KEY);
         //options
         const options = {
             key: process.env.REACT_APP_RAZORPAY_KEY,
