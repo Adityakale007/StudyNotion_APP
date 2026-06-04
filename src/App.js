@@ -12,6 +12,7 @@ import VerifyEmail from "./pages/VerifyEmail";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import MyProfile from "./components/core/Dashboard/MyProfile";
+import AiChatbot from "./components/core/Dashboard/AiChatbot";
 import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./components/core/Auth/PrivateRoute";
 import Error from "./pages/Error"
@@ -114,6 +115,7 @@ function App() {
       {
         user?.accountType === ACCOUNT_TYPE.STUDENT && (
           <>
+          <Route path="dashboard/ai-chat" element={<AiChatbot />} />
           <Route path="dashboard/cart" element={<Cart />} />
           <Route path="dashboard/enrolled-courses" element={<EnrolledCourses />} />
           </>
