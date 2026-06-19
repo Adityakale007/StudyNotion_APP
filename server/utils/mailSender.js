@@ -10,7 +10,10 @@ const mailSender = async (email, title, body) => {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
       },
-    })
+    });
+
+    await transporter.verify();
+    console.log("SMTP Connected Successfully");
 
     const info = await transporter.sendMail({
       from:
