@@ -25,19 +25,32 @@ Backend API
 ---
 
 # 📸 Screenshots
+<!-- Homepage -->
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/775153fe-d3fc-439e-b7ba-4976d2efb158"
+       alt="Homepage Hero"
+       width="900" />
+</p>
 
-### Homepage
-<img width="600" height="500" alt="Screenshot 2026-03-07 at 5 22 34 AM" src="https://github.com/user-attachments/assets/775153fe-d3fc-439e-b7ba-4976d2efb158" />
-<img width="600" height="500" alt="Screenshot 2026-03-07 at 5 23 02 AM" src="https://github.com/user-attachments/assets/74efbd70-1f87-4763-81b6-7e13e8484044" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/74efbd70-1f87-4763-81b6-7e13e8484044"
+       alt="Homepage Features"
+       width="900" />
+</p>
 
-### Course Page
+<!-- Course Page -->
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6f8b797a-8a61-42a9-9b63-bb0a39454031"
+       alt="Course Page"
+       width="700" />
+</p>
 
-<img width="600" height="500" alt="Screenshot 2026-03-07 at 5 20 47 AM" src="https://github.com/user-attachments/assets/6f8b797a-8a61-42a9-9b63-bb0a39454031" />
-
-### Instructor Dashboard
-
-<img width="600" height="500" alt="Screenshot 2026-03-07 at 5 24 20 AM" src="https://github.com/user-attachments/assets/88f3bd16-4aa6-4325-8aff-31f9a5cae1f2" />
-
+<!-- Instructor Dashboard -->
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/88f3bd16-4aa6-4325-8aff-31f9a5cae1f2"
+       alt="Instructor Dashboard"
+       width="700" />
+</p>
 ---
 
 # ✨ Features
