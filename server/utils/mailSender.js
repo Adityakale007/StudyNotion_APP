@@ -1,3 +1,39 @@
+// const nodemailer = require("nodemailer");
+
+// const mailSender = async (email, title, body) => {
+//   try {
+//     const transporter = nodemailer.createTransport({
+//       host: process.env.MAIL_HOST,
+//       port: Number(process.env.MAIL_PORT) || 465,
+//       secure: String(process.env.MAIL_SECURE).toLowerCase() === "true",
+//       auth: {
+//         user: process.env.MAIL_USER,
+//         pass: process.env.MAIL_PASS,
+//       },
+//     });
+
+//     await transporter.verify();
+//     console.log("SMTP Connected Successfully");
+
+//     const info = await transporter.sendMail({
+//       from:
+//         process.env.MAIL_FROM ||
+//         `"StudyNotion" <${process.env.MAIL_USER || "no-reply@studynotion.com"}>`,
+//       to: `${email}`,
+//       subject: `${title}`,
+//       html: `${body}`,
+//     })
+//     console.log(info)
+//     return info
+//   } catch (error) {
+//     console.log(error.message)
+//     throw error
+//   }
+// }
+
+
+// module.exports = mailSender;
+
 const nodemailer = require("nodemailer");
 
 const mailSender = async (email, title, body) => {
@@ -10,6 +46,7 @@ const mailSender = async (email, title, body) => {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
       },
+      family: 4, // THIS IS THE CRITICAL FIX FOR RENDER
     });
 
     await transporter.verify();
@@ -22,15 +59,14 @@ const mailSender = async (email, title, body) => {
       to: `${email}`,
       subject: `${title}`,
       html: `${body}`,
-    })
-    console.log(info)
-    return info
+    });
+    console.log(info);
+    return info;
   } catch (error) {
-    console.log(error.message)
-    throw error
+    console.log(error.message);
+    throw error;
   }
-}
-
+};
 
 module.exports = mailSender;
 
