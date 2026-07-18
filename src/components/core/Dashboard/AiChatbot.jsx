@@ -31,7 +31,7 @@ export default function AiChatbot() {
         : "https://studynotion-backend-8bx4.onrender.com/api/v1";
 
       const response = await axios.post(
-        "http://localhost:4000/api/v1/ai/chat", // FORCE local testing
+        "http://studynotion-backend-8bx4.onrender.com/api/v1/ai/chat", // FORCE local testing
         { prompt: userMessage.text },
         {
           headers: {
