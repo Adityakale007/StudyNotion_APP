@@ -51,7 +51,7 @@ const mailSender = async (email, title, body) => {
 
     const info = await transporter.sendMail({
       // The 'from' email must be the one you used to register your Brevo account
-      from: `"StudyNotion" <${process.env.MAIL_USER}>`, 
+      from: `"StudyNotion" <adityakale6805@gmail.com>`, 
       to: `${email}`,
       subject: `${title}`,
       html: `${body}`,
